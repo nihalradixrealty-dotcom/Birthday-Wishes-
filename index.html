@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wishes - Interactive Celebration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- OTP Verification Screen -->
+    <div id="otpScreen" class="screen active">
+        <div class="otp-container">
+            <div class="otp-header">
+                <h1>🎉 Welcome to Your Birthday Celebration 🎉</h1>
+                <p>Enter the OTP to unlock your special birthday surprise!</p>
+            </div>
+            <div class="otp-input-group">
+                <input type="password" id="otpInput" class="otp-input" placeholder="Enter OTP" maxlength="6">
+                <button onclick="verifyOTP()" class="btn-submit">Submit</button>
+            </div>
+            <div id="otpError" class="error-message"></div>
+            <p class="otp-hint">Hint: The OTP is "one tea" 🍵</p>
+        </div>
+    </div>
+
+    <!-- Main Celebration Screen -->
+    <div id="celebrationScreen" class="screen">
+        <div class="celebration-container">
+            <header class="celebration-header">
+                <h1>🎊 Happy Birthday! 🎊</h1>
+                <p>Let's celebrate together!</p>
+            </header>
+
+            <!-- Activities Section -->
+            <div class="activities-section">
+                <!-- Balloons Pop Game -->
+                <div class="activity-card">
+                    <h2>🎈 Pop the Balloons!</h2>
+                    <p>Click on the balloons to pop them</p>
+                    <div id="balloonContainer" class="balloon-container">
+                        <!-- Balloons will be generated here -->
+                    </div>
+                    <button onclick="generateBalloons()" class="btn-activity">Generate Balloons</button>
+                    <p id="balloonCount" class="activity-counter">Balloons popped: 0</p>
+                </div>
+
+                <!-- Candle Blowing Game -->
+                <div class="activity-card">
+                    <h2>🕯️ Blow Out the Candles!</h2>
+                    <p>Click on the candles to blow them out</p>
+                    <div id="candleContainer" class="candle-container">
+                        <!-- Candles will be generated here -->
+                    </div>
+                    <button onclick="generateCandles()" class="btn-activity">Generate Candles</button>
+                    <p id="candleCount" class="activity-counter">Candles blown: 0</p>
+                </div>
+            </div>
+
+            <!-- Vintage Letter Section -->
+            <div class="letter-section">
+                <div class="letter-card">
+                    <h2>💌 Open Your Vintage Letter</h2>
+                    <p>A special message awaits you...</p>
+                    <button onclick="openLetter()" class="btn-open-letter">📨 Open Letter</button>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-section">
+                <p>Complete all activities to unlock the letter!</p>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <p id="progressText" class="progress-text">0%</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vintage Letter Modal -->
+    <div id="letterModal" class="modal hidden">
+        <div class="letter-content">
+            <button onclick="closeLetter()" class="btn-close">✕</button>
+            <div class="vintage-letter">
+                <div class="letter-header">
+                    <p class="letter-date">~ Birthday Wishes ~</p>
+                </div>
+                <div class="letter-body">
+                    <p class="letter-text">Dear Birthday Star,</p>
+                    <p class="letter-text">Today is your special day! A day to celebrate you, your journey, and all the wonderful moments you bring to the world.</p>
+                    <p class="letter-text">From the first moment of the day to the last, may every second be filled with:</p>
+                    <ul class="letter-list">
+                        <li>✨ Bright smiles and genuine laughter</li>
+                        <li>💝 Love from those who cherish you</li>
+                        <li>🌟 Dreams that come true</li>
+                        <li>🎉 Moments worth remembering</li>
+                        <li>🌈 Hope for an amazing year ahead</li>
+                    </ul>
+                    <p class="letter-text">You deserve all the happiness in the world. Make a wish, blow out your candles, and know that today, the whole world celebrates YOU!</p>
+                    <p class="letter-signature">With warmest wishes,</p>
+                    <p class="letter-signature">Your Birthday Celebration 🎂</p>
+                </div>
+                <div class="letter-footer">
+                    <p class="letter-decoration">✦ ✧ ✦</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
